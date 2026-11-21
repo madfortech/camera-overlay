@@ -1,0 +1,56 @@
+{
+    "namespace": "CameraOverlay",
+    "bridge_functions": [
+        {
+            "name": "CameraOverlay.RecordVideo",
+            "android": "com.madfortech.cameraoverlay.CameraOverlayFunctions.RecordVideo",
+            "ios": "CameraOverlayFunctions.RecordVideo",
+            "description": "Record video with in-app camera preview and teleprompter overlay"
+        },
+        {
+            "name": "CameraOverlay.SaveToGallery",
+            "android": "com.madfortech.cameraoverlay.CameraOverlayFunctions.SaveToGallery",
+            "ios": "CameraOverlayFunctions.SaveToGallery",
+            "description": "Copy a recorded video into the device gallery"
+        }
+    ],
+    "android": {
+        "min_version": 26,
+        "permissions": [
+            "android.permission.CAMERA",
+            "android.permission.RECORD_AUDIO",
+            "<uses-permission android:name=\"android.permission.WRITE_EXTERNAL_STORAGE\" android:maxSdkVersion=\"28\" />"
+        ],
+            "dependencies": {
+                "implementation": [
+                    "androidx.camera:camera-core:1.4.2",
+                    "androidx.camera:camera-camera2:1.4.2",
+                    "androidx.camera:camera-lifecycle:1.4.2",
+                    "androidx.camera:camera-video:1.4.2",
+                    "androidx.camera:camera-view:1.4.2",
+                    "androidx.appcompat:appcompat:1.7.0",
+                    "com.google.guava:guava:33.3.1-android"
+                ]
+            },
+        "activities": [
+            {
+                "name": "com.madfortech.cameraoverlay.CameraOverlayActivity",
+                "theme": "@style/Theme.AppCompat.NoActionBar",
+                "screenOrientation": "portrait",
+                "exported": false
+            }
+        ]
+    },
+    "ios": {
+        "min_version": "18.2",
+        "info_plist": {
+            "NSCameraUsageDescription": "This app needs camera access to record video.",
+            "NSMicrophoneUsageDescription": "This app needs microphone access to record video with audio.",
+            "NSPhotoLibraryAddUsageDescription": "This app saves your recorded videos to the photo library."
+        }
+    },
+    "events": [
+        "Native\\Mobile\\Events\\Camera\\VideoRecorded",
+        "Native\\Mobile\\Events\\Camera\\VideoCancelled"
+    ]
+}
