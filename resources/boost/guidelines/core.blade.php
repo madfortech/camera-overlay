@@ -1,12 +1,12 @@
-## telescript/camera-overlay
+## madfortech/camera-overlay
 
-Records video with an in-app camera preview and a teleprompter script overlay.
+Records video with an in-app camera preview and a custom script overlay.
 
 ### PHP Usage
 
 @verbatim
 <code-snippet name="Record with script overlay" lang="php">
-use Telescript\CameraOverlay\Facades\CameraOverlay;
+use Madfortech\CameraOverlay\Facades\CameraOverlay;
 
 CameraOverlay::recordVideo()
     ->script($this->script)
@@ -22,5 +22,5 @@ CameraOverlay::saveToGallery($absolutePath);
 
 ### Events
 
-- `Native\Mobile\Events\Camera\VideoRecorded` (path, mimeType, id)
-- `Native\Mobile\Events\Camera\VideoCancelled` (cancelled, id)
+- `Madfortech\CameraOverlay\Events\VideoRecorded` (path, mimeType, id)
+- `Madfortech\CameraOverlay\Events\VideoCancelled` (cancelled, id)
