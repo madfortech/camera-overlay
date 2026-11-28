@@ -30,8 +30,9 @@ object CameraOverlayFunctions {
             val event = parameters["event"] as? String
             val maxDuration = (parameters["maxDuration"] as? Number)?.toInt() ?: 0
             val countdown = (parameters["countdown"] as? Number)?.toInt()?.coerceAtLeast(0) ?: 3
+            val orientation = parameters["orientation"] as? String ?: "portrait"
 
-            Log.d("CameraOverlay.Record", "Launching overlay recorder id=$id duration=$maxDuration countdown=$countdown")
+            Log.d("CameraOverlay.Record", "Launching overlay recorder id=$id duration=$maxDuration countdown=$countdown orientation=$orientation")
 
             Handler(Looper.getMainLooper()).post {
                 try {
@@ -41,6 +42,7 @@ object CameraOverlayFunctions {
                         putExtra(CameraOverlayActivity.EXTRA_EVENT, event)
                         putExtra(CameraOverlayActivity.EXTRA_MAX_DURATION, maxDuration)
                         putExtra(CameraOverlayActivity.EXTRA_COUNTDOWN, countdown)
+                        putExtra(CameraOverlayActivity.EXTRA_ORIENTATION, orientation)
                     }
                     activity.startActivity(intent)
                 } catch (e: Exception) {

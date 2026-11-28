@@ -1,6 +1,7 @@
 package com.telescript.cameraoverlay
 
 import android.Manifest
+import android.content.pm.ActivityInfo
 import android.content.pm.PackageManager
 import android.graphics.Color
 import android.graphics.Typeface
@@ -44,6 +45,7 @@ class CameraOverlayActivity : AppCompatActivity() {
         const val EXTRA_EVENT = "event"
         const val EXTRA_MAX_DURATION = "maxDuration"
         const val EXTRA_COUNTDOWN = "countdown"
+        const val EXTRA_ORIENTATION = "orientation"
         private const val TAG = "CameraOverlayActivity"
         private const val REQ_PERMS = 1001
     }
@@ -86,6 +88,13 @@ class CameraOverlayActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        val orientation = intent.getStringExtra(EXTRA_ORIENTATION) ?: "portrait"
+        requestedOrientation = if (orientation == "landscape") {
+            ActivityInfo.SCREEN_ORIENTATION_SENSOR_LANDSCAPE
+        } else {
+            ActivityInfo.SCREEN_ORIENTATION_SENSOR_PORTRAIT
+        }
 
         recordingId = intent.getStringExtra(EXTRA_ID)
         eventClass = intent.getStringExtra(EXTRA_EVENT)

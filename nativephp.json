@@ -3,13 +3,13 @@
     "bridge_functions": [
         {
             "name": "CameraOverlay.RecordVideo",
-            "android": "com.madfortech.cameraoverlay.CameraOverlayFunctions.RecordVideo",
+            "android": "com.telescript.cameraoverlay.CameraOverlayFunctions.RecordVideo",
             "ios": "CameraOverlayFunctions.RecordVideo",
             "description": "Record video with in-app camera preview and teleprompter overlay"
         },
         {
             "name": "CameraOverlay.SaveToGallery",
-            "android": "com.madfortech.cameraoverlay.CameraOverlayFunctions.SaveToGallery",
+            "android": "com.telescript.cameraoverlay.CameraOverlayFunctions.SaveToGallery",
             "ios": "CameraOverlayFunctions.SaveToGallery",
             "description": "Copy a recorded video into the device gallery"
         }
@@ -34,7 +34,7 @@
             },
         "activities": [
             {
-                "name": "com.madfortech.cameraoverlay.CameraOverlayActivity",
+                "name": "com.telescript.cameraoverlay.CameraOverlayActivity",
                 "theme": "@style/Theme.AppCompat.NoActionBar",
                 "screenOrientation": "portrait",
                 "exported": false

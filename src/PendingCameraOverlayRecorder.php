@@ -62,6 +62,16 @@ class PendingCameraOverlayRecorder
         return $this;
     }
 
+    /**
+     * Lock the overlay camera to portrait or landscape recording.
+     */
+    public function orientation(string $orientation): self
+    {
+        $this->options['orientation'] = strtolower($orientation) === 'landscape' ? 'landscape' : 'portrait';
+
+        return $this;
+    }
+
     public function start(): bool
     {
         if ($this->started) {
